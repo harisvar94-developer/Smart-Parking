@@ -7,14 +7,14 @@ import smartparking.service.ParkingService;
 
 public class ParkingReport {
 
-    private ParkingLot parkingLot;
-    private ParkingService service;
+    private final ParkingLot parkingLot;
+    private final ParkingService service;
 
     public ParkingReport(ParkingLot parkingLot, ParkingService service) {
         this.parkingLot = parkingLot;
         this.service = service;
     }
-
+//-------------------------------------------------------------------------------------
     public int getOccupiedSlots() {
         int count = 0;
         for (ParkingSlot slot : parkingLot.getSlots()) {
@@ -24,10 +24,14 @@ public class ParkingReport {
         }
         return count;
     }
+//----------------------------------------------------------------------------------------
 
     public int getAvailableSlots() {
-        return parkingLot.getTotalSlots() - service.getTicketCount();
+        // bug fixed bro .getTotalSlots() - size of the array to this --->
+        return parkingLot.getTotalSlots() - getOccupiedSlots();
     }
+
+//------------------------------------------------------------------------------------------
 
     public void printStatus() {
         System.out.println("   +---------------- " + parkingLot.getName() + " ----------------+");
@@ -38,16 +42,17 @@ public class ParkingReport {
                 who = slot.getVehicle().getRegistrationNumber();
             }
             String state = slot.isOccupied() ? "OCCUPIED" : "FREE";
-            System.out.println("   | Slot " + slot.getSlotNumber() + "  " + pad(state, 9) + pad(who, 12) + "        |");
+            System.out.println("   | Slot " + slot.getSlotNumber() + "  " + pad(state, 9) + pad(who, 12) + "               |");
             if (!slotList.isEmpty()) {
                 slotList = slotList + ",";
             }
             slotList = slotList + slot.getSlotNumber() + ":" + who + ":" + (slot.isOccupied() ? "OCC" : "FREE");
         }
-        System.out.println("   | Available: " + getAvailableSlots() + "   Occupied: " + getOccupiedSlots()
-                + "                |");
-        System.out.println("   +--------------------------------------------+");
+            System.out.println("   | Available: " + getAvailableSlots() + "   Occupied: " + getOccupiedSlots()
+                    + "                   |");
+        System.out.println("   +----------------------------------------------+");
     }
+//------------------------------------------------------------------------------------------
 
     public void printDailySummary() {
         System.out.println("\n===== DAILY SUMMARY =====");
@@ -60,12 +65,14 @@ public class ParkingReport {
         }
         System.out.println("  Total collected: Rs." + total);
     }
+//-----------------------------------------------------------------------------------
 
     public static String formatTime(int minutes) {
         int h = minutes / 60;
         int m = minutes % 60;
         return (h < 10 ? "0" : "") + h + ":" + (m < 10 ? "0" : "") + m;
     }
+//------------------------------------------------------------------------------------------
 
     private static String pad(String text, int width) {
         String result = text;

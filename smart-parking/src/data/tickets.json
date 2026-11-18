@@ -1,0 +1,9 @@
+[
+ {"id":"T1001","reg":"TNCAR5555","type":"CAR","slot":1,"entry":732,"exit":732,"fee":40,"closed":true}  ,
+ {"id":"T1002","reg":"TNBIKE1111","type":"BIKE","slot":2,"entry":743,"exit":912,"fee":40,"closed":true}  ,
+ {"id":"T1003","reg":"TNCAR12345","type":"CAR","slot":1,"entry":765,"exit":732,"fee":40,"closed":true}  ,
+ {"id":"T1004","reg":"TN123456","type":"BIKE","slot":2,"entry":732,"exit":1174,"fee":140,"closed":true}  ,
+ {"id":"T1005","reg":"TN123456","type":"CAR","slot":1,"entry":732,"exit":1392,"fee":440,"closed":true}  ,
+ {"id":"T1006","reg":"TN4321","type":"BIKE","slot":2,"entry":776,"exit":1392,"fee":200,"closed":true}  ,
+ {"id":"T1007","reg":"TN12345Y","type":"BIKE","slot":1,"entry":754,"exit":732,"fee":20,"closed":true}  ,
+]

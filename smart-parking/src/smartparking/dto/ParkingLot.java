@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ParkingLot {
 
-    private String name;
+    private final String name;
     private ArrayList<ParkingSlot> slots = new ArrayList<>();
 
     public ParkingLot(String name, int numberOfSlots) {
@@ -13,7 +13,7 @@ public class ParkingLot {
             slots.add(new ParkingSlot(number));
         }
     }
-
+    /// it 
     public String getName() {
         return name;
     }
@@ -25,11 +25,12 @@ public class ParkingLot {
     public int getTotalSlots() {
         return slots.size();
     }
-
+    // in parkingSlot --> getSlot   
     public ParkingSlot getSlot(int slotNumber) {
-        if (slotNumber < 0 || slotNumber >= slots.size()) {
+        // bug fixed 
+        if (slotNumber < 1 || slotNumber >= slots.size()) {
             return null;
         }
-        return slots.get(slotNumber);
+        return slots.get(slotNumber-1);
     }
 }

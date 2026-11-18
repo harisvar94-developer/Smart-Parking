@@ -2,8 +2,14 @@ package smartparking.dto;
 
 public class Vehicle {
 
-    private String registrationNumber;
-    private String type;
+
+    /*
+     * This class get registrationNumber , vehicle type from parking controller and
+     * give getRegistrationNumber(),getType(),getHourlyRate() to 
+     */
+
+    private final String registrationNumber;
+    private final String type;
 
     public Vehicle(String registrationNumber, String type) {
         this.registrationNumber = registrationNumber.toUpperCase();
@@ -25,6 +31,7 @@ public class Vehicle {
         return 40;
     }
 
+    @Override
     public String toString() {
         return registrationNumber + " (" + type + ")";
     }

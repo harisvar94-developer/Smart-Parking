@@ -2,8 +2,8 @@ package smartparking.dto;
 
 public class ParkingSlot {
 
-    private int slotNumber;
-    private boolean occupied;
+    private final int slotNumber;
+    private  boolean occupied;
     private Vehicle vehicle;
 
     public ParkingSlot(int slotNumber) {
@@ -14,11 +14,15 @@ public class ParkingSlot {
 
     public void assignVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
-        boolean occupied = true;
-    }
+        // something fishy bro ✅
+        // bug bro
+        occupied = true;
+    }   
 
     public void release() {
+        // another one bug 
         this.occupied = false;
+        this.vehicle = null;
     }
 
     public int getSlotNumber() {

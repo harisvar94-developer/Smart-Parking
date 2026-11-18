@@ -27,6 +27,7 @@ public class ParkingTicket {
     public void close(int exitTime) {
         this.exitTime = exitTime;
         this.fee = getChargeableHours() * vehicle.getHourlyRate();
+        this.closed = true;
     }
 
     public int getDurationMinutes() {
@@ -61,7 +62,7 @@ public class ParkingTicket {
     public int getExitTime() {
         return exitTime;
     }
-
+//-------------------------------------------------------- I need to look in this spot bro 
     public int getFee() {
         return fee;
     }
